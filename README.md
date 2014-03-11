@@ -11,6 +11,7 @@ The Arduino app takes the values from the Serial connection and depending to the
 note (pitch) to the connected speaker.
 
 /*******************************************************************************
+
  Copyright (c) 2014 Apostolos Siokas
 
  This program is free software: you can redistribute it and/or modify
@@ -22,4 +23,5 @@ note (pitch) to the connected speaker.
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
+ 
  ******************************************************************************/
