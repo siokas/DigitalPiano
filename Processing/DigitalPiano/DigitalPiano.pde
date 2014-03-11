@@ -31,7 +31,7 @@ import processing.net.*;
 import processing.serial.*;
 
 Serial myPort; // Serial port to send the data to Arduino
-int mySerialPortList = 5; // Which port is connected to the Arduino
+int mySerialPortList = 0; // Which port is connected to the Arduino
 Server myServer; // Server in order to connect with Android
 int port = 2222; // Port 2222 in which the demon listens for connections
 boolean myServerRunning = true; // Boolean if the server is up and running
