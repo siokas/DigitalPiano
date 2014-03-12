@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>DigitalPiano by solotsopa</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>DigitalPiano</h1>
+        <h2>Play music from Arduino using the accelerometer sensor of an Android device</h2>
+        <a href="https://github.com/solotsopa/DigitalPiano" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p><img src="https://raw.github.com/solotsopa/DigitalPiano/master/Android/DigitalPiano/Android-Arduino/src/main/res/drawable-xhdpi/ic_launcher.png" alt=""></p>
+
+<h3>
+<a name="welcome-to-digitalpiano-app" class="anchor" href="#welcome-to-digitalpiano-app"><span class="octicon octicon-link"></span></a>Welcome to DigitalPiano app</h3>
+
+<p>The DigitalPiano app is a combination of Android-Processing-Arduino applications which is playing piano in the speaker
+connected to the Arduino.
+The Android app is taking values from the accelerometer sensor and sends them to the Processing app via the WiFi network using Sockets.
+The Processing app is a simple server which forwards to the Arduino (using the Serial connection) the values 
+which are taken from the Android app.
+The Arduino app takes the values from the Serial connection and depending to these values sends the corresponding note (pitch) to the connected speaker.</p>
+
+<h3>
+<a name="android-app" class="anchor" href="#android-app"><span class="octicon octicon-link"></span></a>Android app</h3>
+
+<p>The Android app is taking values from the accelerometer sensor and sends them to the Processing app via the WiFi network using Sockets. There is a "Start Accelerator" button which starts the sensor and an
+input field to enter the ip of the server. If the server's ip is correct, up and running and the sensor
+is taking values of the x axis, the app makes a connection with the server and sends the x values
+in an absolute format (because if you tilt the device to the right, the x axis takes negative values). </p>
+
+<p><code>SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);</code><br><br><code>List&lt;Sensor&gt; sensors = sensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER);</code></p>
+
+<h3>
+<a name="processing-app" class="anchor" href="#processing-app"><span class="octicon octicon-link"></span></a>Processing app</h3>
+
+<p>The Processing app is a simple server which forwards to the Arduino (using the Serial connection) the values. It creates a small window and starts the server socket waiting for incoming connections. If 
+there is a connection, the app prints the ip of the client and forwards the incoming message to the 
+Serial connection (in which the Arduino is connected). </p>
+
+<h3>
+<a name="arduino-app" class="anchor" href="#arduino-app"><span class="octicon octicon-link"></span></a>Arduino app</h3>
+
+<p>The Arduino app takes the values from the Serial connection and depending to these values sends the corresponding note (pitch) to the connected speaker. The incoming values are between 0 and 9 and
+the Arduino app plays different note depending on theses values.</p>
+
+<h3>
+<a name="arduino-circuit" class="anchor" href="#arduino-circuit"><span class="octicon octicon-link"></span></a>Arduino Circuit</h3>
+
+<p>To play music with your Arduino you need to have: an Arduino (any type), a breadboard (not necessary), 
+a speaker and some breadboard wires. You have to connect the one cable of speaker to an Arduino
+pin and the other to the Ground.</p>
+
+<p><img src="https://raw.github.com/solotsopa/DigitalPiano/master/Arduino/DigitalPiano/arduino.jpg" alt="Arduino"></p>
+
+<h3>
+<a name="troubleshooting" class="anchor" href="#troubleshooting"><span class="octicon octicon-link"></span></a>Troubleshooting</h3>
+
+<p>In the Processing code you have to change the Serial port list to the one which is connects your
+Computer with the Arduino. Change the <em>mySerialPortList</em></p>
+
+<p><code>int mySerialPortList = 0;</code><br><br><code>String portName = Serial.list()[mySerialPortList];</code></p>
+
+<p>In Arduino app code you have to change the pin to the one which you have connected the speaker in the
+Arduino.</p>
+
+<p><code>int pin = 12;</code> </p>
+
+<h3>
+<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>Android and Processing app are designed and programmed by Apostolos Siokas (<a href="https://github.com/solotsopa" class="user-mention">@solotsopa</a>)</p>
+
+<h3>
+<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>For everything you can reach me at <a href="mailto:apostolossiokas@gmail.com">apostolossiokas@gmail.com</a></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/solotsopa/DigitalPiano/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/solotsopa/DigitalPiano/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/solotsopa/DigitalPiano"></a> is maintained by <a href="https://github.com/solotsopa">solotsopa</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-28752364-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
