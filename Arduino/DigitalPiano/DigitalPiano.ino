@@ -24,7 +24,7 @@ int noteDurations[] = {
   
 char val;
 
-int pin = 12; // Change it to the pin which is connected to the speaker
+int pin = 11; // Change it to the pin which is connected to the speaker
 
 void setup() {
   
