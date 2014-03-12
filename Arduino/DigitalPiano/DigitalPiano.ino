@@ -24,24 +24,11 @@ int noteDurations[] = {
   
 char val;
 
+int pin = 12; // Change it to the pin which is connected to the speaker
+
 void setup() {
   
-  Serial.begin(9600);
-  // iterate over the notes of the melody:
-  for (int thisNote = 0; thisNote < 8; thisNote++) {
-
-    // to calculate the note duration, take one second 
-    // divided by the note type.
-    //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
-    int noteDuration = 1000/noteDurations[thisNote];
-    tone(8, melody[thisNote],noteDuration);
-
-    // to distinguish the notes, set a minimum time between them.
-    // the note's duration + 30% seems to work well:
-    int pauseBetweenNotes = noteDuration * 1.30;
-    delay(pauseBetweenNotes);
-    // stop the tone playing:
-    noTone(8);
+  Serial.begin(9600); // Begin the serial communication
   }
 }
 
@@ -55,31 +42,31 @@ void loop() {
   // Check what is the value is and play the corresponding note
   switch (val){
     case '1':
-      tone(8, melody[0], 1000/4);
+      tone(pin, melody[0], 1000/4);
     break;
     
     case '2':
-      tone(8, melody[1], 1000/4);
+      tone(pin, melody[1], 1000/4);
     break;
     
     case '3':
-      tone(8, melody[2], 1000/4);
+      tone(pin, melody[2], 1000/4);
     break;
     
     case '4':
-      tone(8, melody[3], 1000/4);
+      tone(pin, melody[3], 1000/4);
     break;
     
     case '5':
-      tone(8, melody[4], 1000/4);
+      tone(pin, melody[4], 1000/4);
     break;
     
     case '6':
-      tone(8, melody[5], 1000/4);
+      tone(pin, melody[5], 1000/4);
     break;
     
     case '7':
-      tone(8, melody[6], 1000/4);
+      tone(pin, melody[6], 1000/4);
     break;
   }
   
