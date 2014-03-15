@@ -16,7 +16,7 @@
 
 // notes in the melody:
 int melody[] = {
-  NOTE_C4, NOTE_G3,NOTE_G3, NOTE_A3, NOTE_G3,0, NOTE_B3, NOTE_C4};
+  NOTE_C3, NOTE_D3,NOTE_E3, NOTE_F3, NOTE_G3,NOTE_A3, NOTE_B3, NOTE_C4};
 
 // note durations: 4 = quarter note, 8 = eighth note, etc.:
 int noteDurations[] = {
@@ -29,7 +29,7 @@ int pin = 11; // Change it to the pin which is connected to the speaker
 void setup() {
   
   Serial.begin(9600); // Begin the serial communication
-  }
+  
 }
 
 void loop() {
@@ -67,6 +67,10 @@ void loop() {
     
     case '7':
       tone(pin, melody[6], 1000/4);
+    break;
+    
+    case '8':
+      tone(pin, melody[7], 1000/4);
     break;
   }
   

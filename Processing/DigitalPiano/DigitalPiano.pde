@@ -70,7 +70,7 @@ void draw()
         message = thisClient.readString(); // Read the incoming message
         int x = Integer.parseInt(message.trim()); // Parse the incoming string into integer
         myPort.write(x); // Send 0 to the Arduino        
-        text("" + thisClient.ip() + " is Connected!", 15, textLine); // Show the messages on the screen
+       // text("" + thisClient.ip() + " is Connected!", 15, textLine); // Show the messages on the screen
         textLine = textLine + 35; // After the message change the line
         myPort.write(message);
       }
